@@ -41,7 +41,7 @@ function strftime(sFormat, date) {
       return nYear%100!==0 || year%400===0;
     },
     getThursday = function() {
-      var target = date;
+      var target = new Date(date);
       target.setDate(nDate - ((nDay+6)%7) + 3);
       return target;
     },

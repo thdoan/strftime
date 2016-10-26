@@ -37,7 +37,7 @@ function strftime(sFormat, date) {
     aMonths = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
     aDayCount = [0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334],
     isLeapYear = function() {
-      if (nYear&3!==0) return false;
+      if ((nYear&3)!==0) return false;
       return nYear%100!==0 || nYear%400===0;
     },
     getThursday = function() {

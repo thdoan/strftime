@@ -1,4 +1,6 @@
-/* Port of strftime(). Compatibility notes:
+/* Port of strftime() by T. H. Doan (https://thdoan.github.io/strftime/)
+ *
+ * Compatibility notes:
  *
  * %c - formatted string is slightly different
  * %D - not implemented (use "%m/%d/%y" or "%d/%m/%y")

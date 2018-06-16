@@ -8,7 +8,7 @@
  * %E - not implemented
  * %h - not implemented (use "%b")
  * %k - space is not added
- * %n - not implemented (use "\n")
+ * %n - like %m, but no leading zero (use "\n" for newline)
  * %O - not implemented
  * %r - not implemented (use "%I:%M:%S %p")
  * %R - not implemented (use "%H:%M")
@@ -68,6 +68,7 @@ function strftime(sFormat, date) {
       '%k': nHour,
       '%l': (nHour+11)%12 + 1,
       '%m': zeroPad(nMonth + 1, 2),
+      '%n': nMonth + 1,
       '%M': zeroPad(date.getMinutes(), 2),
       '%p': (nHour<12) ? 'AM' : 'PM',
       '%P': (nHour<12) ? 'am' : 'pm',

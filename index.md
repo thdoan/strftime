@@ -1,9 +1,9 @@
 # strftime()
 A JavaScript port of [`strftime()`](http://man7.org/linux/man-pages/man3/strftime.3.html), a function to format the date and time.
 
-### Supported format parameters:
+### Supported conversion specifications:
 
-| Parameter | Description |
+| Sequence  | Description |
 |-----------|-------------|
 | `%a` | Abbreviated name of the day of the week. |
 | `%A` | Full name of the day of the week. |
@@ -22,6 +22,7 @@ A JavaScript port of [`strftime()`](http://man7.org/linux/man-pages/man3/strftim
 | `%k` | Hour as a decimal number using a 24-hour clock (range 0 to 23). See also `%H`. |
 | `%l` | Hour as a decimal number using a 12-hour clock (range 1 to 12). See also `%I`. |
 | `%m` | Month as a decimal number (range 01 to 12). |
+| `%n` | Month as a decimal number (range 1 to 12). |
 | `%M` | Minute as a decimal number (range 00 to 59). |
 | `%p` | Either "AM" or "PM" according to the given time value. Noon is treated as "PM" and midnight as "AM". |
 | `%P` | Like `%p` but in lowercase ("am" or "pm"). |
@@ -36,3 +37,22 @@ A JavaScript port of [`strftime()`](http://man7.org/linux/man-pages/man3/strftim
 | `%Y` | Year as a decimal number including the century. |
 | `%z` | The `+hhmm` or `-hhmm` numeric timezone (that is, the hour and minute offset from UTC). |
 | `%Z` | Timezone name or abbreviation. |
+
+### Compatibility notes:
+
+* `%c` - formatted string is slightly different
+* `%D` - not implemented (use `%m/%d/%y` or `%d/%m/%y`)
+* `%e` - space is not added
+* `%E` - not implemented
+* `%h` - not implemented (use `%b`)
+* `%k` - space is not added
+* `%n` - like `%m`, but no leading zero (use `\n` for newline)
+* `%O` - not implemented
+* `%r` - not implemented (use `%I:%M:%S %p`)
+* `%R` - not implemented (use `%H:%M`)
+* `%t` - not implemented (use `\t`)
+* `%T` - not implemented (use `%H:%M:%S`)
+* `%U` - not implemented
+* `%W` - not implemented
+* `%+` - not implemented
+* `%%` - not implemented (use `%`)

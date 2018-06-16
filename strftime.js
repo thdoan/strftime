@@ -47,10 +47,10 @@ function strftime(sFormat, date) {
       return target;
     },
     zeroPad = function(nNum, nPad) {
-      return ('' + (Math.pow(10, nPad) + nNum)).slice(1);
+      return ((Math.pow(10, nPad) + nNum) + '').slice(1);
     };
   return sFormat.replace(/%[a-z]/gi, function(sMatch) {
-    return {
+    return (({
       '%a': aDays[nDay].slice(0,3),
       '%A': aDays[nDay],
       '%b': aMonths[nMonth].slice(0,3),
@@ -61,11 +61,11 @@ function strftime(sFormat, date) {
       '%e': nDate,
       '%F': date.toISOString().slice(0,10),
       '%G': getThursday().getFullYear(),
-      '%g': ('' + getThursday().getFullYear()).slice(2),
+      '%g': (getThursday().getFullYear() + '').slice(2),
       '%H': zeroPad(nHour, 2),
       '%I': zeroPad((nHour+11)%12 + 1, 2),
       '%j': zeroPad(aDayCount[nMonth] + nDate + ((nMonth>1 && isLeapYear()) ? 1 : 0), 3),
-      '%k': '' + nHour,
+      '%k': nHour,
       '%l': (nHour+11)%12 + 1,
       '%m': zeroPad(nMonth + 1, 2),
       '%M': zeroPad(date.getMinutes(), 2),
@@ -82,13 +82,13 @@ function strftime(sFormat, date) {
               if (nJan1!==4) target.setMonth(0, 1 + ((4-nJan1)+7)%7);
               return zeroPad(1 + Math.ceil((n1stThu-target)/604800000), 2);
             })(),
-      '%w': '' + nDay,
+      '%w': nDay,
       '%x': date.toLocaleDateString(),
       '%X': date.toLocaleTimeString(),
-      '%y': ('' + nYear).slice(2),
+      '%y': (nYear + '').slice(2),
       '%Y': nYear,
       '%z': date.toTimeString().replace(/.+GMT([+-]\d+).+/, '$1'),
       '%Z': date.toTimeString().replace(/.+\((.+?)\)$/, '$1')
-    }[sMatch] || sMatch;
+    }[sMatch] || '') + '') || sMatch;
   });
 }

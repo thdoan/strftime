@@ -1,27 +1,5 @@
 /* Port of strftime() by T. H. Doan (https://thdoan.github.io/strftime/)
  *
- * Compatibility notes:
- *
- * %c - formatted string is slightly different
- * %D - not implemented (use "%m/%d/%y" or "%d/%m/%y")
- * %e - space is not added
- * %E - not implemented
- * %h - not implemented (use "%b")
- * %k - space is not added
- * %n - like %m, but no leading zero (use "\n" for newline)
- * %O - not implemented
- * %r - not implemented (use "%I:%M:%S %p")
- * %R - not implemented (use "%H:%M")
- * %t - not implemented (use "\t")
- * %T - not implemented (use "%H:%M:%S")
- * %U - not implemented
- * %W - not implemented
- * %+ - not implemented
- * %% - not implemented (use "%")
- *
- * strftime() reference:
- * http://man7.org/linux/man-pages/man3/strftime.3.html
- *
  * Day of year (%j) code based on Joe Orost's answer:
  * http://stackoverflow.com/questions/8619879/javascript-calculate-the-day-of-the-year-1-366
  *

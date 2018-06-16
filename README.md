@@ -37,3 +37,22 @@ A JavaScript port of [`strftime()`](http://man7.org/linux/man-pages/man3/strftim
 | `%Y` | Year as a decimal number including the century. |
 | `%z` | The `+hhmm` or `-hhmm` numeric timezone (that is, the hour and minute offset from UTC). |
 | `%Z` | Timezone name or abbreviation. |
+
+### Compatibility notes:
+
+* `%c` - formatted string is slightly different
+* `%D` - not implemented (use `%m/%d/%y` or `%d/%m/%y`)
+* `%e` - space is not added
+* `%E` - not implemented
+* `%h` - not implemented (use `%b`)
+* `%k` - space is not added
+* `%n` - like `%m`, but no leading zero (use `\n` for newline)
+* `%O` - not implemented
+* `%r` - not implemented (use `%I:%M:%S %p`)
+* `%R` - not implemented (use `%H:%M`)
+* `%t` - not implemented (use `\t`)
+* `%T` - not implemented (use `%H:%M:%S`)
+* `%U` - not implemented
+* `%W` - not implemented
+* `%+` - not implemented
+* `%%` - not implemented (use `%`)

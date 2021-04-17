@@ -56,3 +56,14 @@ A JavaScript port of [`strftime()`](http://man7.org/linux/man-pages/man3/strftim
 * `%W` - not implemented
 * `%+` - not implemented
 * `%%` - not implemented (use `%`)
+
+### Sample usage:
+
+```
+// Returns "15-09-2016 16:20"
+strftime('%d-%m-%Y %H:%M');
+
+// You can optionally pass it a Date object
+// Returns "01-01-2016 21:30"
+strftime('%d-%m-%Y %H:%M', new Date('Jan 1, 2016 9:30 PM'));
+```

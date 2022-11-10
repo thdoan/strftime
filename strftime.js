@@ -20,6 +20,7 @@ function strftime(sFormat, date) {
   const nMonth = date.getMonth();
   const nYear = date.getFullYear();
   const nHour = date.getHours();
+  const nTime = date.getTime();
   const aDays = [
     'Sunday',
     'Monday',
@@ -62,7 +63,7 @@ function strftime(sFormat, date) {
       '%C': Math.floor(nYear / 100),
       '%d': zeroPad(nDate, 2),
       '%e': nDate,
-      '%F': date.toISOString().slice(0, 10),
+      '%F': (new Date(nTime - (date.getTimezoneOffset() * 60000))).toISOString().slice(0, 10),
       '%G': getThursday().getFullYear(),
       '%g': (getThursday().getFullYear() + '').slice(2),
       '%H': zeroPad(nHour, 2),
@@ -75,7 +76,7 @@ function strftime(sFormat, date) {
       '%M': zeroPad(date.getMinutes(), 2),
       '%p': (nHour < 12) ? 'AM' : 'PM',
       '%P': (nHour < 12) ? 'am' : 'pm',
-      '%s': Math.round(date.getTime() / 1000),
+      '%s': Math.round(nTime / 1000),
       '%S': zeroPad(date.getSeconds(), 2),
       '%u': nDay || 7,
       '%V': (() => {

@@ -13,7 +13,7 @@ A JavaScript port of [`strftime()`](http://man7.org/linux/man-pages/man3/strftim
 | `%C`  | Century number (year/100) as a 2-digit integer. | 20 |
 | `%d`  | Day of the month as a decimal number (range 01 to 31). | 01 |
 | `%e`  | Day of the month as a decimal number (range 1 to 31). | 1 |
-| `%F`  | ISO 8601 date format (equivalent to `%Y-%m-%d`). | 2022-04-02 |
+| `%F`  | ISO 8601 date format (equivalent to `%Y-%m-%d`). | 2022-04-01 |
 | `%g`  | Like `%G`, but without century, that is, with a 2-digit year. | 22 |
 | `%G`  | ISO 8601 week-based year with century as a decimal number. The 4-digit year corresponds to the ISO week number (see `%V`). This has the same format and value as `%Y`, except that if the ISO week number belongs to the previous or next year, that year is used instead. | 2022 |
 | `%H`  | Hour as a decimal number using a 24-hour clock (range 00 to 23). See also `%k`. | 17 |
@@ -35,7 +35,7 @@ A JavaScript port of [`strftime()`](http://man7.org/linux/man-pages/man3/strftim
 | `%X`  | Preferred time representation for the current locale without the date. | 5:15:00 PM |
 | `%y`  | Year as a decimal number without a century (range 00 to 99). | 22 |
 | `%Y`  | Year as a decimal number including the century. | 2022 |
-| `%z`  | The `+hhmm` or `-hhmm` numeric timezone (that is, the hour and minute offset from UTC). | -0700 |
+| `%z`  | The `+hhmm` or `-hhmm` numeric timezone (that is, the hour and minute offset from UTC). | -0800 |
 | `%Z`  | Timezone name. | Pacific Standard Time |
 | `%Zs` | Timezone short name (abbreviation). | PST |
 

@@ -58,7 +58,7 @@ function strftime(sFormat, date) {
       '%A': aDays[nDay],
       '%b': aMonths[nMonth].slice(0, 3),
       '%B': aMonths[nMonth],
-      '%c': date.toUTCString(),
+      '%c': date.toUTCString().replace(',', ''),
       '%C': Math.floor(nYear / 100),
       '%d': zeroPad(nDate, 2),
       '%e': nDate,

@@ -9,7 +9,7 @@ A JavaScript port of [`strftime()`](http://man7.org/linux/man-pages/man3/strftim
 | `%A`  | Full name of the day of the week. | Friday |
 | `%b`  | Abbreviated month name. | Apr |
 | `%B`  | Full month name. | April |
-| `%c`  | UTC date and time representation for the current locale. | Sat, 02 Apr 2022 00:15:00 GMT |
+| `%c`  | UTC date and time representation for the current locale. | Sat 02 Apr 2022 00:15:00 GMT |
 | `%C`  | Century number (year/100) as a 2-digit integer. | 20 |
 | `%d`  | Day of the month as a decimal number (range 01 to 31). | 01 |
 | `%e`  | Day of the month as a decimal number (range 1 to 31). | 1 |

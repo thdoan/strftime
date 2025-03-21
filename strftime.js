@@ -53,7 +53,7 @@ function strftime(sFormat, date) {
   };
   const zeroPad = (nNum, nPad) => ((Math.pow(10, nPad) + nNum) + '').slice(1);
 
-  return sFormat.replace(/%[a-z]+\b/gi, (sMatch) => {
+  return sFormat.replace(/%[a-zA-Z]/g, (sMatch) => {
     return (({
       '%a': aDays[nDay].slice(0, 3),
       '%A': aDays[nDay],

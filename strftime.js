@@ -53,7 +53,7 @@ function strftime(sFormat, date) {
   };
   const zeroPad = (nNum, nPad) => ((Math.pow(10, nPad) + nNum) + '').slice(1);
 
-  return sFormat.replace(/%[a-zA-Z]/g, (sMatch) => {
+  return sFormat.replace(/%[a-zA-Z]+/g, (sMatch) => {
     return (({
       '%a': aDays[nDay].slice(0, 3),
       '%A': aDays[nDay],
@@ -96,8 +96,18 @@ function strftime(sFormat, date) {
       '%X': date.toLocaleTimeString(),
       '%y': (nYear + '').slice(2),
       '%Y': nYear,
-      '%z': date.toTimeString().replace(/.+GMT([+-]\d+).+/, '$1'),
-      '%Z': date.toTimeString().replace(/.+\((.+?)\)$/, '$1'),
+      '%z': (() => {
+        const nOffset = date.getTimezoneOffset();
+        const sSign = (nOffset <= 0) ? '+' : '-';
+        const nHours = Math.floor(Math.abs(nOffset) / 60);
+        const nMinutes = Math.abs(nOffset) % 60;
+        return sSign + zeroPad(nHours, 2) + zeroPad(nMinutes, 2);
+      })(),
+      '%Z': (() => {
+        const sTime = date.toTimeString();
+        const aMatches = sTime.match(/\((.+?)\)$/);
+        return aMatches ? aMatches[1] : '';
+      })(),
       '%Zs': new Intl.DateTimeFormat('default', {
         timeZoneName: 'short',
       }).formatToParts(date).find((oPart) => oPart.type === 'timeZoneName')?.value,

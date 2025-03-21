@@ -104,3 +104,8 @@ function strftime(sFormat, date) {
     }[sMatch] || '') + '') || sMatch;
   });
 }
+
+// Add module exports
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = strftime;
+}

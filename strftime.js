@@ -80,16 +80,12 @@ function strftime(sFormat, date) {
       '%S': zeroPad(date.getSeconds(), 2),
       '%u': nDay || 7,
       '%V': (() => {
-        const target = getThursday();
-        const n1stThu = target.valueOf();
-        target.setMonth(0, 1);
-        const nJan1 = target.getDay();
-
-        if (nJan1 !== 4) {
-          target.setMonth(0, 1 + ((4 - nJan1) + 7) % 7);
-        }
-
-        return zeroPad(1 + Math.ceil((n1stThu - target) / 604800000), 2);
+        const thurs = getThursday();
+        const firstJan = new Date(thurs.getFullYear(), 0, 1);
+        let firstThurs = new Date(firstJan);
+        firstThurs.setDate(firstJan.getDate() + (4 - firstJan.getDay() + 7) % 7);
+        const nWeekDiff = (thurs - firstThurs) / 604800000;
+        return zeroPad(Math.round(nWeekDiff) + 1, 2);
       })(),
       '%w': nDay,
       '%x': date.toLocaleDateString(),
